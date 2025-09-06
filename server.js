@@ -35,16 +35,16 @@ app.get("/api/users", (req, res) => {
 });
 
 //Register AND Login Route 
-app.use("/api/auth",authRoute)
+app.use("/auth",authRoute)
 
 //List and get giftCards
 
 // Routes
-app.use("/api/giftcards", giftCardRoutes);
+app.use("/giftcards", giftCardRoutes);
 
 //Bank account
 
-app.use("/api/bankaccount", bankAccountRoutes);
+app.use("/bankaccount", bankAccountRoutes);
 const PORT = process.env.PORT || 5000;
 
 

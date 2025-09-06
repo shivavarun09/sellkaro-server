@@ -10,6 +10,6 @@ const protect = require("../middleware/auth");
 
 // Routes
 router.post('/sell', protect, addGiftCard);
-router.get('/my', protect, viewUserGiftCards); // GET  /api/giftcards/my
+router.get('/sellhistory', protect, viewUserGiftCards); // GET  /api/giftcards/my
 
 module.exports = router;

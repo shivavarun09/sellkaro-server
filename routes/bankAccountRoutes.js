@@ -7,9 +7,9 @@ const {
 } = require("../controllers/addOrUpdateBankAccount");
 
 // Add or update bank account (only logged in users)
-router.post("/add", protect, addOrUpdateBankAccount);
+router.post("/addaccount", protect, addOrUpdateBankAccount);
 
 // Get logged-in user's bank account
-router.get("/me", protect, getBankAccount);
+router.get("/myaccount", protect, getBankAccount);
 
 module.exports = router;
