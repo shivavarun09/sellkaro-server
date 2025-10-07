@@ -18,7 +18,9 @@ const dotenv = require("dotenv");
 const connectToDb = require("./config/dataBaseConn"); 
 const authRoute = require("./routes/authRoutes");
 const giftCardRoutes = require("./routes/giftCardRoutes");
-const bankAccountRoutes= require("./routes/bankAccountRoutes")
+const bankAccountRoutes= require("./routes/bankAccountRoutes");
+const userRoutesme = require("./routes/userRoute");
+const adminRoutes = require("./routes/adminRoutes")
 
 
 // Load environment variables
@@ -47,6 +49,12 @@ app.use("/giftcards", giftCardRoutes);
 app.use("/bankaccount", bankAccountRoutes);
 const PORT = process.env.PORT || 5000;
 
+//Admin functionalitys
+//  /admin/allgc
+app.use("/admin",adminRoutes)
+
+// User routes (protected)
+app.use("/users", userRoutesme);
 
 const startServer = async () => {
   try {

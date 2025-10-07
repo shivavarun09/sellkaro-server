@@ -1,4 +1,4 @@
-const User = require("../models/userModel");
+const User = require("../Model/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const registrationMailGreet = require("../utils/nodeMailer");
@@ -9,7 +9,10 @@ const registerUser = async (req, res,next) => {
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
-      return res.status(400).json({ message: "Please fill all fields" });
+      return res.status(400).json({ message: "Please enter all fields" });
+    }
+      if (password.length < 8) {
+      return res.status(400).json({ message: "Password should minimum 8 characters" });
     }
 
     const normalizedEmail = email.toLowerCase().trim();
@@ -21,12 +24,12 @@ const registerUser = async (req, res,next) => {
 
 // Allow only Google emails
 if (!normalizedEmail.endsWith("@gmail.com")) {
-  return res.status(400).json({ message: "Only Google emails are allowed" });
+  return res.status(400).json({ message: "Please register using google mail Id" });
 }
     // Check if user already exists
     const existingUser = await User.findOne({ email: normalizedEmail });
     if (existingUser) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: "Email already exists please login" });
     }
 
     // Hash password
@@ -38,6 +41,7 @@ if (!normalizedEmail.endsWith("@gmail.com")) {
       name,
       email: normalizedEmail,
       password: hashedPassword,
+      role: "user",
     });
 
     //Sending registration Email
@@ -60,7 +64,7 @@ if (!normalizedEmail.endsWith("@gmail.com")) {
     // Generate JWT
     let token;
 try{
-     token = jwt.sign({ id: user._id,email:user.email}, process.env.JWT_SECRET, {
+     token = jwt.sign({ id: user._id,email:user.email,name:user.name}, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
 }
@@ -73,7 +77,7 @@ catch(err){
 }
 
     res.status(201).json({
-      message: "User registered successfully",
+      message: "User registered successfully please login",
       data: {
         id: user._id,
         name: user.name,

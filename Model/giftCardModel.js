@@ -35,6 +35,14 @@ unique:true,
       type: Date,
       required: true,
     },
+    gcUserPayout:{
+type:Number
+    },
+    gcstatus:{
+type:String,
+enum:["Under Review","Rejected","Payout Relesed"],
+default:"Under Review"
+    },
   },
   { timestamps: true }
 );

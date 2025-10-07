@@ -1,4 +1,4 @@
-const User = require("../models/userModel");
+const User = require("../Model/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -26,9 +26,10 @@ if(!passwordMatch){
     // Generate JWT
     let token;
 try{
-     token = jwt.sign({ id: user._id,email:user.email}, process.env.JWT_SECRET, {
+     token = jwt.sign({ id: user._id,email:user.email,name:user.name,role:user.role}, process.env.JWT_SECRET, {
       expiresIn: "7d",
     });
+  console.log(token)
 }
 catch(err){
    console.log(err);
@@ -42,7 +43,8 @@ catch(err){
       data:{
         id:user._id,
         name:user.name,
-        email:user.email,token
+        email:user.email,token,
+        role:user.role,
       }
     })
   }
@@ -50,6 +52,7 @@ catch(err){
     console.log("Login error")
     res.status(500).json({message:"server error"})
   }
+  
 }
 
 

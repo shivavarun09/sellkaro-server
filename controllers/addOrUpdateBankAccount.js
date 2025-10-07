@@ -1,4 +1,5 @@
 const BankAccount = require("../Model/bankAccountModel");
+const BankAddMail = require("../utils/nodeMailer")
 
 // Add or update bank account
 const addOrUpdateBankAccount = async (req, res) => {
@@ -35,6 +36,20 @@ const addOrUpdateBankAccount = async (req, res) => {
         accountNumber,
         ifscCode,
       });
+// Sending Bank acccount added email to user
+await BankAddMail(
+   req.user.email,
+      "New Bank Account Added",
+      `
+      <div style="font-family: Arial, sans-serif; text-align: center;">
+        <h2>Hello, ${req.user.name}!</h2>
+        <p>Your bank account has been successfully added on SELLKARO.</p>
+        <p>Bank Name: ${bankName}</p>
+        <p>Account No: ${accountNumber}</p>
+        <p>Ifsc code: ${ifscCode}</p>
+      </div>`
+);
+
 
       return res.status(201).json({
         message: "Bank account added successfully",
