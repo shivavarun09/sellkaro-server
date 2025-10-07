@@ -1,3 +1,8 @@
+
+const dotenv = require("dotenv");
+// Load environment variables
+dotenv.config();
+// console.log(process.env.MONGO_URI)
 const express = require("express");
 const cors = require("cors");
 // Initialize app
@@ -14,7 +19,6 @@ app.use(express.json());
 // (Optional) for form-urlencoded data
 app.use(express.urlencoded({ extended: true }));
 
-const dotenv = require("dotenv");
 const connectToDb = require("./config/dataBaseConn"); 
 const authRoute = require("./routes/authRoutes");
 const giftCardRoutes = require("./routes/giftCardRoutes");
@@ -23,8 +27,6 @@ const userRoutesme = require("./routes/userRoute");
 const adminRoutes = require("./routes/adminRoutes")
 
 
-// Load environment variables
-dotenv.config();
 
 
 // Test route
