@@ -2,7 +2,8 @@
 const dotenv = require("dotenv");
 // Load environment variables
 dotenv.config();
-// console.log(process.env.MONGO_URI)
+console.log(process.env.MONGO_URI)
+
 const express = require("express");
 const cors = require("cors");
 // Initialize app
@@ -13,7 +14,7 @@ app.use(cors({
   credentials: true,
 }));
 
-// Middleware
+// Middlewareggggggggggggggggggggggg
 app.use(express.json());
 
 // (Optional) for form-urlencoded data

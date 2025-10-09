@@ -1,9 +1,14 @@
-// GET /bankaccount/:userId  (Admin only)
 const BankAccount = require("../Model/bankAccountModel");
 
+// GET /bankaccount/:userId  (Admin only)
 const getUserBankAccountByAdmin = async (req, res) => {
   try {
-    const { userId } = req.params; // admin gives userId in the URL
+    // Check admin role (assuming req.user is set by auth middleware)
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ message: "Forbidden: Admins only" });
+    }
+
+    const { userId } = req.params;
 
     const bankAccount = await BankAccount.findOne({ user: userId });
 
