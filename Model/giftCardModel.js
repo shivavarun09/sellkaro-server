@@ -11,6 +11,7 @@ unique:true,
       ref: "User", // reference to User model
       required: true,
     },
+      userEmail: { type: String, required: true },
     gcbrand: {
       type: String,
       required: true,
