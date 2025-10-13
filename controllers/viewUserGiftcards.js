@@ -11,7 +11,7 @@
 //   }
 // };
 
-// module.exports= getUserGiftCards;
+// module.exports= getUserGiftCards
 
 
 const GiftCard = require('../Model/giftCardModel');
