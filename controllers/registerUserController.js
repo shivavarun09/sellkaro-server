@@ -105,7 +105,7 @@ if (!normalizedEmail.endsWith("@gmail.com")) {
               <table border="0" cellspacing="0" cellpadding="0" role="presentation" style="margin-bottom: 24px; width: 100%;">
                 <tr>
                   <td align="center">
-                     <a href="{{verification_link}}" target="_blank" style="display: inline-block; padding: 14px 28px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none; background-color: #2563eb; border-radius: 8px;">Login Now</a>
+                     <a href="https://sellkaro.vercel.app/login" target="_blank" style="display: inline-block; padding: 14px 28px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none; background-color: #2563eb; border-radius: 8px;">Login Now</a>
                   </td>
                 </tr>
               </table>
