@@ -60,6 +60,8 @@ app.use("/admin",adminRoutes)
 // User routes (protected)
 app.use("/users", userRoutesme);
 
+
+
 const startServer = async () => {
   try {
     await connectToDb(); // connect to DB first
