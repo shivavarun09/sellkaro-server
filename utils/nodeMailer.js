@@ -13,7 +13,7 @@ const nodeMailer = async (to, subject, htmlContent) => {
     });
 
     const mailOptions = {
-      from: `"SELLKARO" <${process.env.EMAIL_USER}>`,
+      from: `"SELLKARO" <${process.env.EMAIL_ID}>`,
       to,
       subject,
       html:htmlContent,

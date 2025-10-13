@@ -62,7 +62,7 @@ const updateGiftCardStatus = async (req, res) => {
   </style>
 </head>
 <body style="margin: 0; padding: 0; width: 100% !important; background-color: #f5f7fb;">
-  <span class="preheader">Your {{gc_brand}} gift card has been submitted successfully.</span>
+  <span class="preheader">Your Giftcard status Updated.</span>
 
   <table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
     <tr>
@@ -120,7 +120,7 @@ const updateGiftCardStatus = async (req, res) => {
               <table border="0" cellspacing="0" cellpadding="0" role="presentation" style="margin-bottom: 24px; width: 100%;">
                 <tr>
                   <td align="center">
-                     <a href="{{view_giftcard_status_link}}" target="_blank" style="display: inline-block; padding: 14px 28px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none; background-color: #2563eb; border-radius: 8px;">View Status</a>
+                     <a href="https://sellkaro.vercel.app/orderhistory" target="_blank" style="display: inline-block; padding: 14px 28px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none; background-color: #2563eb; border-radius: 8px;">View Status</a>
                   </td>
                 </tr>
               </table>

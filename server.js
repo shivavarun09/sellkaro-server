@@ -51,7 +51,6 @@ app.use("/giftcards", giftCardRoutes);
 //Bank account
 
 app.use("/bankaccount", bankAccountRoutes);
-const PORT = process.env.PORT || 5000;
 
 //Admin functionalitys
 //  /admin/allgc
@@ -61,6 +60,7 @@ app.use("/admin",adminRoutes)
 app.use("/users", userRoutesme);
 
 
+const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   try {
