@@ -3,11 +3,15 @@ const dotenv = require("dotenv");
 // Load environment variables
 dotenv.config();
 // console.log(process.env.MONGO_URI)
-
+const compression = require("compression")
 const express = require("express");
 const cors = require("cors");
 // Initialize app
 const app = express();
+
+// Enable gzip compression
+app.use(compression());
+
 //Enabling cors
 app.use(cors({
   origin: "*", //http://localhost:5174 <-- match Vite port
