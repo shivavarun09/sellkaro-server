@@ -141,7 +141,7 @@ emailBody
     let token;
 try{
      token = jwt.sign({ id: user._id,email:user.email,name:user.name}, process.env.JWT_SECRET, {
-      expiresIn: "3h",
+      expiresIn: "1h",
     });
 }
 catch(err){
