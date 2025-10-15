@@ -12,7 +12,7 @@ const getGiftCardsByStatus = async (req, res) => {
     }
 
     // Step 3: Fetch all giftcards with given status
-    const giftcards = await GiftCard.find({ gcstatus }).select("-createdAt -updatedAt __v");
+    const giftcards = await GiftCard.find({ gcstatus });
 
     if (giftcards.length === 0) {
       return res.status(404).json({ message: "No giftcards found" });
