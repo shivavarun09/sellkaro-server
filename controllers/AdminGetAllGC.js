@@ -87,6 +87,7 @@ const getAllGiftCards = async (req, res) => {
     // ✅ Use query directly (not wrapped inside { query })
     const total = await GiftCard.countDocuments(query);
     const giftCards = await GiftCard.find(query)
+      .select("-createdAt -updatedAt __v")
       .skip(skip)
       .limit(limit)
       .sort({ createdAt: -1 }); // latest first

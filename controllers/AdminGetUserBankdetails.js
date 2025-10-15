@@ -10,7 +10,8 @@ const getUserBankAccountByAdmin = async (req, res) => {
 
     const { userId } = req.params;
 
-    const bankAccount = await BankAccount.findOne({ user: userId });
+    const bankAccount = await BankAccount.findOne({ user: userId })
+    .select("accountHolderName accountNumber ifscCode bankName");
 
     if (!bankAccount) {
       return res.status(404).json({ message: "No bank account found for this user" });

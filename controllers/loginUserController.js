@@ -27,7 +27,7 @@ if(!passwordMatch){
     let token;
 try{
      token = jwt.sign({ id: user._id,email:user.email,name:user.name,role:user.role}, process.env.JWT_SECRET, {
-      expiresIn: "10m",
+      expiresIn: "3h",
     });
 }
 catch(err){
@@ -40,9 +40,10 @@ catch(err){
     res.status(200).json({
       message:"Login successfull",
       data:{
-        id:user._id,
+        // id:user._id,
         name:user.name,
-        email:user.email,token,
+        email:user.email,
+        token,
         role:user.role,
       }
     })

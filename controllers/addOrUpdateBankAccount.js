@@ -14,7 +14,7 @@ const addOrUpdateBankAccount = async (req, res) => {
     }
 
     // Check if user already has a bank account
-    let bankAccount = await BankAccount.findOne({ user: req.user._id });
+    let bankAccount = await BankAccount.findOne({ user: req.user._id }).select("bankName accountHolderName accountNumber ifscCode");
     const isUpdate = !!bankAccount; // true if updating, false if adding
 
     if (isUpdate) {
