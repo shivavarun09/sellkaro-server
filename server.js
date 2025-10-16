@@ -12,11 +12,18 @@ const app = express();
 // Enable gzip compression
 app.use(compression());
 
+var whitelist = ['http://localhost:5173', 'https://app-smtp.brevo.com','https://sellkaro.vercel.app']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 //Enabling cors
-app.use(cors({
-  origin: "*", //http://localhost:5174 <-- match Vite port
-  credentials: true,
-}));
+app.use(cors(corsOptions));
 
 
 // Middlewareggggggggggggggggggggggg
