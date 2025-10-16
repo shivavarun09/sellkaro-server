@@ -15,7 +15,7 @@ const normalizedEmail = email.toLowerCase().trim();
 //Find user in database
 const user = await User.findOne({email:normalizedEmail})
 if(!user){
-  return res.status(400).json({message:"User not found, Please register"})
+  return res.status(400).json({message:"We couldn’t find an account for this email. Please register."})
 }
 //Compare Password
 const passwordMatch = await bcrypt.compare(password,user.password);

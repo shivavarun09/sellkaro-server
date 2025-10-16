@@ -12,24 +12,24 @@ const registerUser = async (req, res,next) => {
       return res.status(400).json({ message: "Please enter all fields" });
     }
       if (password.length < 8) {
-      return res.status(400).json({ message: "Password should minimum 8 characters" });
+      return res.status(400).json({ message: "Password must be at least 8 characters long." });
     }
 
     const normalizedEmail = email.toLowerCase().trim();
 //Email validator
     if(!validator.isEmail(normalizedEmail)){
-      return res.status(400).json({message:"please enter a valid email"})
+      return res.status(400).json({message:"Registration requires a Google email account."})
     }
 //Checking for only google email ids
 
 // Allow only Google emails
 if (!normalizedEmail.endsWith("@gmail.com")) {
-  return res.status(400).json({ message: "Please register using google mail Id" });
+  return res.status(400).json({ message: "Registration requires a Google email account." });
 }
     // Check if user already exists
     const existingUser = await User.findOne({ email: normalizedEmail });
     if (existingUser) {
-      return res.status(400).json({ message: "Email already exists please login" });
+      return res.status(400).json({ message: "This email is already registered. Please log in." });
     }
 
     // Hash password
@@ -153,7 +153,7 @@ catch(err){
 }
 
     res.status(201).json({
-      message: "User registered successfully please login",
+      message: "Registration successful! Please log in to continue.",
       data: {
         id: user._id,
         name: user.name,
@@ -162,7 +162,7 @@ catch(err){
       },
     });
   } catch (error) {
-    console.error("User registration failed:", error.message);
+    console.error("Registration failed. Please try again", error.message);
     res.status(500).json({ message: "Server error" });
   }
 };

@@ -153,7 +153,7 @@ const addOrUpdateBankAccount = async (req, res) => {
       data: bankAccount,
     });
   } catch (error) {
-    console.error("Error adding/updating bank account:", error.message);
+    console.error(`Error in ${isUpdate ? "updating" : "adding"} bank account:`, error.message);
     res.status(500).json({ message: "Server error" });
   }
 };

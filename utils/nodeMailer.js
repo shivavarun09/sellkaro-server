@@ -38,7 +38,7 @@ const nodeMailer = async (to, subject, htmlContent) => {
     const defaultClient = SibApiV3Sdk.ApiClient.instance;
     const apiKey = defaultClient.authentications["api-key"];
     apiKey.apiKey = process.env.BREVO_API_KEY; // store this in your Render environment
-console.log(process.env.BREVO_API_KEY)
+// console.log(process.env.BREVO_API_KEY)
     const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
     // Email payload
