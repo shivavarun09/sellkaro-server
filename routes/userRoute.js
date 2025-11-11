@@ -2,7 +2,6 @@
 const express = require("express");
 const User = require("../Model/userModel");
 const auth = require("../middleware/auth");
-
 const router = express.Router();
 
 // GET /api/users/me
@@ -14,5 +13,4 @@ router.get("/me", auth, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
-
 module.exports = router;

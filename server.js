@@ -12,6 +12,7 @@ const giftCardRoutes = require("./routes/giftCardRoutes");
 const bankAccountRoutes = require("./routes/bankAccountRoutes");
 const userRoutes = require("./routes/userRoute");
 const adminRoutes = require("./routes/adminRoutes");
+const razorpayPaymentsRoutes = require("./routes/razorpayPaymentRoutes")
 
 const app = express();
 
@@ -62,6 +63,8 @@ app.use("/giftcards", giftCardRoutes);
 app.use("/bankaccount", bankAccountRoutes);
 app.use("/admin", adminRoutes);
 app.use("/users", userRoutes);
+app.use("/admin/payment",razorpayPaymentsRoutes)
+
 
 // ✅ Start server
 const PORT = process.env.PORT || 5000;
